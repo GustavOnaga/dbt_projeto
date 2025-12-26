@@ -9,6 +9,7 @@ projeto_prod:
       threads: 4
       keyfile: "{{env_var('GCP_DEV_KEYFILE_PATH')}}"
 
+
     prod:
       type: bigquery
       method: service-account

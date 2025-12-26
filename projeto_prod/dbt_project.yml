@@ -1,4 +1,3 @@
-
 name: 'projeto_prod'
 version: '1.0.0'
 
@@ -11,29 +10,28 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-clean-targets:         # directories to be removed by `dbt clean`
+clean-targets:
   - "target"
   - "dbt_packages"
-
 
 models:
   projeto_um:
     staging:
-      schema: stg
+      +schema: stg
       +materialized: table
-      tags: '[staging]'
+      +tags: ['staging']
 
     intermediate:
-      schema: int
+      +schema: int
       +materialized: ephemeral
-      tags: '[intermediate]'
+      +tags: ['intermediate']
 
     marts:
-      schema: marts
+      +schema: marts
       +materialized: table
-      tags: '[marts]'
+      +tags: ['marts']
 
-  seeds:
-    projeto_um:
-      schema: raw
-      tags: ['seeds']
+seeds:
+  projeto_um:
+    +schema: seeds
+    +tags: ['seeds']
